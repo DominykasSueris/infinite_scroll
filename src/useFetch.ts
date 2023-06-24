@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-interface Photos {
+export interface Photos {
     albumId : number,
     id: number,
     thumbnailUrl: string,
@@ -8,7 +8,8 @@ interface Photos {
     url: string
   }
 
-const useFetch = () => {
+export const useFetch = () => {
+
 const [photos, setPhotos] = useState<Photos[]>([]);
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState<boolean>(false);
