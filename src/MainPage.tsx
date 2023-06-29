@@ -1,13 +1,15 @@
 import useFetch from './useFetch';
 
 const MainPage = () => {
-    const { photos } = useFetch()
+    const { data } = useFetch()
+
+    if (!data) return <h1>No data</h1>
   
     return (
         <ul>
-        {photos.map((photo) => <li
-        key={photo.id}>
-          {photo.id}
+        {data.photos.photo.map((p) => <li
+        key={p.id}>
+            <img src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}/>
         </li>)}
         </ul>
     );
