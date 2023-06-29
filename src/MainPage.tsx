@@ -1,18 +1,22 @@
-import useFetch from './useFetch';
+import useFetch from "./useFetch";
 
 const MainPage = () => {
-    const { data } = useFetch()
+  const { data } = useFetch();
 
-    if (!data) return <h1>No data</h1>
-  
-    return (
-        <ul>
-        {data.photos.photo.map((p) => <li
-        key={p.id}>
-            <img src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}/>
-        </li>)}
-        </ul>
-    );
+  if (!data) return <h1>No data</h1>;
+
+  return (
+    <div className="container">
+      {data.photos.photo.map((p) => (
+        <img
+          className="col-3"
+          key={p.id}
+          src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
+          alt={p.title}
+        />
+      ))}
+    </div>
+  );
 };
 
 export default MainPage;
