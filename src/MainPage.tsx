@@ -1,4 +1,5 @@
 import useFetch from "./useFetch";
+import "./MainPage.css";
 
 const MainPage = () => {
   const { data } = useFetch();
@@ -9,7 +10,7 @@ const MainPage = () => {
     <div className="container">
       {data.photos.photo.map((p) => (
         <img
-          className="col-3"
+          className="col-4"
           key={p.id}
           src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
           alt={p.title}
