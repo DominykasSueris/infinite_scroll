@@ -1,40 +1,51 @@
 import { useEffect, useState } from 'react';
 
+
+export interface GetRecentResponse {
+    photos: Photos,
+    stat: string
+}
+
 export interface Photos {
-    albumId : number,
-    id: number,
-    thumbnailUrl: string,
-    title: string,
-    url: string
+    page: number,
+    pages: number,
+    perpage: number,
+    photo: Photo[],
+    total: number
+}
+
+
+export interface Photo {
+    id: string,
+    secret: string,
+    server: string,
+    title: string
   }
 
 export const useFetch = () => {
 
-const [photos, setPhotos] = useState<Photos[]>([]);
+const [data, setData] = useState<GetRecentResponse>();
 const [loading, setLoading] = useState(true);
 const [error, setError] = useState<boolean>(false);
 
 const fetchData = async () => {
     setLoading(true)
-    console.log("loading")
     try {
-    const result = await fetch("https://jsonplaceholder.typicode.com/albums/1/photos")
+    const result = await fetch("https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=c7004108902944c554b100474945d48b&format=json&nojsoncallback=1")
     const json = await result.json();
-    setPhotos(json)
+    setData(json)
     }
     catch (error) {
         setError(true)
-        console.log(error, "error")
     }
     setLoading(false)
-    console.log("loaded")
   }
 
   useEffect(() => {
     fetchData()
   }, [])
 
-  return {photos, loading, error}
+  return {data, loading, error}
 };
 
 export default useFetch;
