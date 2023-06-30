@@ -2,3 +2,16 @@ img {
   height: 450px;
   padding: 0.5rem;
 }
+
+.navbar {
+  height: 4rem;
+}
+
+.navbar span {
+  font-size: 1.5rem;
+  font-family: "Times New Roman", Times, serif;
+}
+
+.container {
+  margin-top: 5rem;
+}
