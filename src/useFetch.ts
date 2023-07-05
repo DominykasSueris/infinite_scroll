@@ -18,23 +18,41 @@ export interface Photo {
 }
 
 export const useFetch = () => {
-  const [data, setData] = useState<GetRecentResponse>();
-  const [loading, setLoading] = useState(true);
+  const [data, setData] = useState<Photo[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
 
   const fetchData = async () => {
     setLoading(true);
     try {
       const result = await fetch(
-        "https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=c7004108902944c554b100474945d48b&format=json&nojsoncallback=1"
+        `https://www.flickr.com/services/rest/?method=flickr.photos.getRecent&api_key=c7004108902944c554b100474945d48b&format=json&nojsoncallback=1&page=${page}&per_page=10`
       );
-      const json = await result.json();
-      setData(json);
+      const json = (await result.json()) as GetRecentResponse;
+
+      setData((prevItems) => [...prevItems, ...json.photos.photo]);
+      setPage((page) => page + 1);
     } catch (error) {
       setError(true);
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
+
+  const handleScroll = (e: any) => {
+    if (
+      window.innerHeight + e.target.documentElement.scrollTop + 1 >=
+      e.target.documentElement.scrollHeight
+    ) {
+      fetchData();
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading]);
 
   useEffect(() => {
     fetchData();

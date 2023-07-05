@@ -12,10 +12,10 @@ const MainPage = () => {
         <span className="navbar-brand">Lorem Ipsum</span>
       </nav>
       <div className="container">
-        {data.photos.photo.map((p) => (
+        {data.map((p, index) => (
           <img
             className="col-4"
-            key={p.id}
+            key={index}
             src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
             alt={p.title}
           />
