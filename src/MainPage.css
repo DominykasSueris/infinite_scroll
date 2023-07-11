@@ -1,6 +1,7 @@
 img {
   height: 450px;
   border-radius: 1rem;
+  transition: all 1.5s ease;
 }
 
 .navbar {
@@ -37,5 +38,6 @@ img {
 
 img:hover {
   cursor: pointer;
-  filter: brightness(70%);
+  filter: brightness(60%);
+  transition: all 1.5s ease;
 }
