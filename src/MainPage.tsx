@@ -13,12 +13,15 @@ const MainPage = () => {
       </nav>
       <div className="container">
         {data.map((p, index) => (
-          <img
-            className="col-4"
-            key={index}
-            src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
-            alt={p.title}
-          />
+          <div className="position-relative d-inline-block">
+            <p className="picture-title">{p.title}</p>
+            <img
+              className="picture"
+              key={index}
+              src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
+              alt={p.title}
+            />
+          </div>
         ))}
       </div>
     </>

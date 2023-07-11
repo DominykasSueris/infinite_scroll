@@ -14,5 +14,20 @@ img {
 }
 
 .container {
+  position: relative;
   margin-top: 5rem;
+}
+
+.picture {
+  width: 425px;
+  height: 425px;
+}
+
+.picture-title {
+  position: absolute;
+  color: white;
+  font-size: 30px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
