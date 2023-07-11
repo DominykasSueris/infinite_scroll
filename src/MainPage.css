@@ -1,6 +1,5 @@
 img {
   height: 450px;
-  padding: 0.5rem;
   border-radius: 1rem;
 }
 
@@ -18,9 +17,13 @@ img {
   margin-top: 5rem;
 }
 
+.picture-container {
+  padding: 6px;
+}
+
 .picture {
-  width: 425px;
-  height: 425px;
+  width: 420px;
+  height: 420px;
 }
 
 .picture-title {

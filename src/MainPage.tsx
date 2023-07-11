@@ -13,7 +13,7 @@ const MainPage = () => {
       </nav>
       <div className="container">
         {data.map((p, index) => (
-          <div className="position-relative d-inline-block">
+          <div className="picture-container position-relative d-inline-block">
             <p className="picture-title">{p.title}</p>
             <img
               className="picture"
