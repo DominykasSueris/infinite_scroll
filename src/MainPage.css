@@ -35,7 +35,7 @@ img {
   transform: translate(-50%, -50%);
 }
 
-img,
-p {
+img:hover {
   cursor: pointer;
+  filter: brightness(70%);
 }
