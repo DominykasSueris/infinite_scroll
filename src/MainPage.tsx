@@ -14,13 +14,13 @@ const MainPage = () => {
       <div className="container">
         {data.map((p, index) => (
           <div className="picture-container position-relative d-inline-block">
-            <p className="picture-title">{p.title}</p>
             <img
               className="picture"
               key={index}
               src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
               alt={p.title}
             />
+            <span className="picture-title">{p.title}</span>
           </div>
         ))}
       </div>

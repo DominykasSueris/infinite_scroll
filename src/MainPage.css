@@ -1,5 +1,6 @@
 img {
-  height: 450px;
+  width: 100%;
+  height: 100%;
   border-radius: 1rem;
   transition: all 1.5s ease;
 }
@@ -28,6 +29,7 @@ img {
 }
 
 .picture-title {
+  display: none;
   position: absolute;
   color: white;
   font-size: 30px;
@@ -36,7 +38,11 @@ img {
   transform: translate(-50%, -50%);
 }
 
-img:hover {
+.picture-container:hover span {
+  display: inline-block;
+}
+
+.picture-container:hover img {
   cursor: pointer;
   filter: brightness(60%);
   transition: all 1.5s ease;
