@@ -1,4 +1,5 @@
 import useFetch from "./useFetch";
+import Image from "./Image";
 import "./MainPage.css";
 
 const MainPage = () => {
@@ -13,14 +14,11 @@ const MainPage = () => {
       </nav>
       <div className="container">
         {data.map((p, index) => (
-          <div className="picture-container position-relative d-inline-block">
-            <img
-              className="picture"
-              key={index}
-              src={`https://live.staticflickr.com/${p.server}/${p.id}_${p.secret}.jpg`}
-              alt={p.title}
-            />
-            <span className="picture-title">{p.title}</span>
+          <div
+            className="picture-container position-relative d-inline-block"
+            key={index}
+          >
+            <Image p={p} />
           </div>
         ))}
       </div>

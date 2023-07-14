@@ -28,6 +28,10 @@ img {
   height: 420px;
 }
 
+.hidden {
+  display: none;
+}
+
 .picture-title {
   display: none;
   position: absolute;
