@@ -3,6 +3,7 @@ img {
   height: 100%;
   border-radius: 1rem;
   transition: all 1.5s ease;
+  object-fit: cover;
 }
 
 .navbar {
@@ -15,21 +16,28 @@ img {
 }
 
 .container {
-  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw 1vh;
   margin-top: 5rem;
+  width: 100vw;
 }
 
-.picture-container {
-  padding: 6px;
-}
-
-.picture {
-  width: 420px;
-  height: 420px;
+.container > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 29vw;
+  height: 29vw;
 }
 
 .hidden {
   display: none;
+}
+
+.picture {
+  width: 100%;
+  height: 100%;
 }
 
 .picture-title {

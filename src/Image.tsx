@@ -10,8 +10,8 @@ const Image = ({ p }: Image) => {
   return (
     <>
       {isLoading && (
-        <div className="spinner-border m-5" role="status">
-          <span className="visually-hidden">Loading...</span>
+        <div className="spinner-grow text-primary" role="status">
+          <span className="visually-hidden"></span>
         </div>
       )}
       <img
