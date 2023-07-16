@@ -65,6 +65,11 @@ img {
   transition: all 1.5s ease;
 }
 
+.spinner-border {
+  height: 5rem;
+  width: 5rem;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
