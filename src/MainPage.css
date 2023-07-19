@@ -83,6 +83,10 @@ img {
   z-index: 10;
 }
 
+.picture-fullscreen:hover {
+  cursor: pointer;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
